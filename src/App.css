@@ -1,0 +1,336 @@
+.title{
+  height: 8vh;
+  font-size: 3em;
+  font-weight: 900;
+  text-align: center;
+  background-color: rgb(218, 218, 218);
+}
+.title > a{
+  color: black;
+  text-decoration: none;
+}
+
+.Page {
+  background-color: #282c34;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.select-image-button{
+  font-size: 1em;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  width: 30vw;
+  height: 12vh;
+  border-radius: 23px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+
+}
+.select-image-button > input{
+  display: none;
+}
+
+.active{
+  background-color: rgb(175, 174, 174);
+}
+
+/* 画像系 */
+.picture-wrapper{
+  width: 90vw;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  padding: 3vh 0;
+}
+.picture-wrapper-child{
+  position: relative;
+}
+.list_img:hover + .delete-button{
+  /* スマホではもうちょい大きくする */
+  display: inline-block;
+}
+.picture-wrapper-child:hover > .delete-button:hover{
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.list_img:hover + .store-button{
+  display: inline-block;
+}
+.picture-wrapper-child:hover > .store-button:hover{
+  display: inline-block;
+  border: 1px solid black;
+  right: 6px;
+  top: 6px;
+}
+
+.list_img{
+  position: relative;
+  height: 130px;
+  padding: 5px;
+}
+.delete-button{
+  display: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 20px;
+  background-color: #727272e7;
+  color: white;
+  border: 0;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  text-align: center;
+  line-height: 22px;
+  padding: 0;
+}
+.store-button{
+  background-image: url(./picture/sozai_cman_jp_20220924093009.png);
+  background-size: contain;
+  display: none;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 0;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 0;
+}
+
+/* モーダル系 */
+.close_button,.previous_button,.next_button{
+  position: fixed;
+  font-weight: 900;
+  font-size: 25px;
+  text-align: center;
+}
+.close_button{
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.837);
+}
+.previous_button{
+  bottom: 20px;
+  left: 32vw;
+  height: 40px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.458);
+}
+.next_button{
+  bottom: 20px;
+  right: 32vw;
+  height: 40px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.458);
+}
+.modal-store-button{
+  position: fixed;
+  background-image: url(./picture/sozai_cman_jp_20220924093805.png);
+  background-size: contain;
+  bottom:20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+}
+.page-info{
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  height: 70px;
+  width: 75px;
+  text-align: center;
+  font-size: 50px;
+  color: rgb(144, 144, 144);
+}
+.modal-window{
+  display:none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #282c34;
+}
+.modal-window > img{
+  height: 100vh;
+  width: 100vw;
+  object-fit: contain;
+}
+
+.submit_button{
+  font-size: 1em;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  width: 30vw;
+  height: 12vh;
+  border-radius: 23px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* インジケーター */
+.indicator-page{
+  display:none;
+  height: 92vh;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: #282c34;
+}
+.indicator{
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* アニメーション */
+@-webkit-keyframes slabMove {
+  0% { -webkit-transform: translateY(0) rotateX(30deg); opacity: 0; }
+  10% { -webkit-transform: translateY(-48%); opacity: 1; }
+  90% { -webkit-transform: translateY(-422%); opacity: 0.1; }
+  100% { -webkit-transform: translateY(-480%); opacity: 0; }
+}
+@keyframes slabMove {
+  /* 移動距離　上から落とす角度　色の薄さ　変化 */
+  0% { transform: translateY(0) rotateX(30deg); opacity: 0; }
+  10% { transform: translateY(-48%); opacity: 1; }
+  90% { transform: translateY(-422%); opacity: 0.1; }
+  100% { transform: translateY(-480%); opacity: 0; }
+}
+/* 板　奥行き　3次元配置 */
+.spinner.slabs {
+  width: 4em;
+  height: 4em;
+  -webkit-transform: perspective(15em) rotateX(65deg) rotateZ(-30deg);
+  transform: perspective(15em) rotateX(65deg) rotateZ(-30deg);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+/* 軸　初期設定類 */
+.spinner.slabs .slab {
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  background: gray;
+  /* background: rgb(196, 255, 129); */
+  opacity: 0;
+  box-shadow: -0.08em 0.15em 0 rgb(55, 55, 55);
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-animation: slabMove 4s linear infinite;
+  animation: slabMove 4s linear infinite;
+}
+/* アニメーションの間隔 */
+.spinner.slabs .slab:nth-child(1) { -webkit-animation-delay: 0s; animation-delay: 0s; background-image: url(./picture/50147291483_de698aefcb_w.jpg); background-size: cover;}
+.spinner.slabs .slab:nth-child(2) { -webkit-animation-delay: 1s; animation-delay: 1s; background-image: url(./picture/free-wasinton.jpg); background-size: cover;}
+.spinner.slabs .slab:nth-child(3) { -webkit-animation-delay: 2s; animation-delay: 2s; background-image: url(./picture/free.jpg); background-size: cover;}
+.spinner.slabs .slab:nth-child(4) { -webkit-animation-delay: 3s; animation-delay: 3s; background-image: url(./picture/yamatotakeru.jpg); background-size: cover;}
+/* 現在の送信状況 */
+.send-status{
+  font-size: 50px;
+  font-weight: 800;
+}
+
+/* Page3 */
+.completion_upload{
+  /* スマホはスマホで */
+  font-size: 50px;
+  font-weight: 800;
+  height: 20vh;
+}
+.link_url{
+  font-size: 1.3em;
+  border: 20px ridge rgba(60, 60, 60, 0.6);
+  margin-bottom: 10vh;
+}
+.link_url:active{
+  border: 20px groove rgba(60, 60, 60, 0.6);
+}
+
+/* Page4 */
+.store-all-images{
+  font-size: 1em;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  width: 30vw;
+  height: 12vh;
+  border-radius: 23px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-button{
+  font-size: 1em;
+  font-weight: 900;
+  background-color: red;
+  width: 30vw;
+  height: 12vh;
+  border-radius: 23px;
+  padding: 0;
+  border: 0;
+  margin-bottom: 16vh;
+}
+.home-button > a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 959px) {
+  .link_url{
+    font-size: 1.0em;
+  }
+  .store-all-images{
+    width: 34vw;
+  }
+}
+@media screen and (max-width: 480px) {
+	.title{
+    font-size: 2.6em;
+  }
+  .link_url{
+    font-size: 0.6em;
+  }
+  .completion_upload{
+    /* スマホはスマホで */
+    font-size: 34px;
+  }
+  .store-all-images,.submit_button,.select-image-button,.home-button{
+    width: 50vw;
+    margin-bottom: 4px;
+  }
+  .home-button{
+    margin-bottom: 13vh;
+  }
+
+}

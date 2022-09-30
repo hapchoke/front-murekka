@@ -1,0 +1,8 @@
+{
+  "short_name": "無劣化転送",
+  "name": "無劣化転送",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
